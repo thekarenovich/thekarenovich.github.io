@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} Заголовок email
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'include/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+    <h2>Написать нам</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+    </form>
+{% else %}
+          <main class="container">
+      <div class="bg-light p-5 rounded">
+          <center>
+              <h2>Вам доступен лишь режим чтения записей</h2>
+              <p class="lead">Авторизируйтесь и уже тогда вы сможете <strong>отправлять письма по почте</strong></p>
+          </center>
+       </div>
+    </main>
+{% endif %}
+
+{% endblock %}

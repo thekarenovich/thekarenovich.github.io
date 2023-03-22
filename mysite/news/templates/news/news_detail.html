@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }} Заголовок news_detail
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'include/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{ news_item.author }} | {{ news_item.created_at|date:"d M Y H:i" }}
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        {% if news_item.photo %}
+                            <img src="{{ news_item.photo.url }}" alt="" width="350" class="me-3 float-start>
+                        {% endif %}
+                        <div class="media-body">
+                            <h5 class="card-title>">{{ news_item.title }}</h5>
+                            <p class="card-text">{{ news_item.content|linebreaks }}</p>
+
+
+                            {% if request.user.is_authenticated %}
+                                {% if request.user == news_item.author %}
+                                <a href="{% url 'update_news' news_item.pk %}" class="btn btn-primary">Редактировать</a>
+                                <a href="{% url 'delete_news' news_item.pk %}" class="btn btn-dark">Удалить</a>
+                                {% endif %}
+                            {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
+                <div class="card-footer text-muted">
+
+                    Количество просмотров: {{ views_str }}
+                </div>
+            </div>
+{% endblock %}
