@@ -141,7 +141,7 @@ class UpdateNews(UpdateView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.annotate(cnt=Count('news', filter=F('news__is_published'))).filter(cnt__gt=0).order_by('title')
-        context['news_author'] = News.objects.get(pk= self.kwargs["pk"]).author
+        context['news_author'] = News.objects.get(pk=self.kwargs["pk"]).author
         return context
 
 

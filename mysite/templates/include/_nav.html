@@ -14,17 +14,17 @@
 <!--  </div>-->
 </header>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
     <div class="offcanvas-header">
     <h1 class="font-weight-normal text-primary">
         <a class="me-5 py-2 text-decoration-none" style="padding-right: 30px;" href="{% url 'home' %}">MyPage</a>
     </h1>
     </div>
       <div class="offcanvas-body">
-          <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'popular_news' %}">Популярное</a></h5>
+          <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'popular_news' %}">ПОПУЛЯРНОЕ ★</a></h5>
           {% if request.user.is_authenticated %}
-            <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'my_news' %}">Мои записи</a></h5>
             <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'add_news' %}">Добавить запись</a></h5>
+            <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'my_news' %}">Мои записи</a></h5>
             <h5><a class="me-5 py-2 text-dark text-decoration-none" style="padding-right: 30px;" href="{% url 'email' %}">Написать нам</a></h5><br>
             <h5><a class="me-2 py-2 text-dark text-decoration-none" style="padding-right: 5px;" href="{% url 'user' %}">Личный кабинет</a></h5>
             <h5><a class="me-4 py-2 text-dark text-decoration-none" style="padding-right: 5px;" href="{% url 'logout' %}">Выход</a></h5>

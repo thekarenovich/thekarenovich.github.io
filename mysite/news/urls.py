@@ -24,3 +24,7 @@ urlpatterns = [
     path('', HomeNews.as_view(), name='home'),  # Главная - просмотр всех записей
     path('my_news', MyNews.as_view(), name='my_news'),  # Мои записи - просмотр собственных записей
 ]
+
+
+
+# erik erik erik
